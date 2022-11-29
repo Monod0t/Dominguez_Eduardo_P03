@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
 
     public Animator animator;
+    public float typeSpd;
     
     private Queue<string> sentences;
     
@@ -60,7 +61,8 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+                yield return null;
+            
         }
     }
 

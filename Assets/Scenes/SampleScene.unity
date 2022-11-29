@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15.5, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916163869
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+  m_Color: {r: 0.45098042, g: 0.37254903, b: 0.29803923, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -451,13 +451,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 50
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CONTINUE >>>
+  m_Text: CONTINUE
 --- !u!222 &916163870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 110}
+  m_AnchoredPosition: {x: 0, y: 79}
   m_SizeDelta: {x: 1350, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1080801501
@@ -621,7 +621,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A bunch of dummy dialogue that holds no meaning whatsoever.
+  m_Text: 'A bunch of dummy dialogue. Insert intended dialouge into a Dialogue Trigger
+    script. '
 --- !u!222 &1080801502
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -665,7 +666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 150}
+  m_AnchoredPosition: {x: -302.5, y: 150}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1168723425
@@ -681,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -695,7 +696,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -757,6 +758,7 @@ MonoBehaviour:
   nameText: {fileID: 1168723425}
   dialogueText: {fileID: 1080801501}
   animator: {fileID: 2047137586}
+  typeSpd: 0
 --- !u!1 &1314230278
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +874,7 @@ GameObject:
   - component: {fileID: 1495960110}
   - component: {fileID: 1495960113}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Dialogue Trigger_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +899,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495960110
 MonoBehaviour:
@@ -1008,9 +1010,15 @@ MonoBehaviour:
   dialogue:
     name: Ed
     sentences:
-    - This is certaintly a bruh moment.
+    - This is certainly something.
     - Seriously though.
     - Go do something productive.
+    _targetTextBox: {fileID: 2047137581}
+    _targetImage: {fileID: 2047137584}
+    _textBoxStyle: {fileID: 21300000, guid: 6585027be49d62c4abb9321c6c57f94f, type: 3}
+    _textBoxPos: {x: 960, y: 270}
+    _textBoxColor: {r: 255, g: 255, b: 255, a: 1}
+    typeSfx: {fileID: 0}
 --- !u!1 &1590588110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1090,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Start Dialogue
 --- !u!222 &1590588113
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1104,7 +1112,7 @@ GameObject:
   - component: {fileID: 1925292917}
   - component: {fileID: 1925292916}
   m_Layer: 5
-  m_Name: Continue Dialogue
+  m_Name: Continue Dialogue_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,7 +1136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 527, y: -160}
+  m_AnchoredPosition: {x: 494.25, y: -90}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925292916
@@ -1265,9 +1273,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 270}
   m_SizeDelta: {x: 1500, y: 425}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047137583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,8 +1311,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 6585027be49d62c4abb9321c6c57f94f, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
