@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2078372112870182374
+--- !u!1 &5769672919717035507
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2078372112870182375}
-  - component: {fileID: 2078372112870182394}
-  - component: {fileID: 2078372112870182373}
-  - component: {fileID: 2078372112870182372}
-  - component: {fileID: 2078372112870182395}
+  - component: {fileID: 5769672919717035506}
+  - component: {fileID: 5769672919717035470}
+  - component: {fileID: 5769672919717035471}
+  - component: {fileID: 5769672919717035504}
+  - component: {fileID: 5769672919717035469}
   m_Layer: 5
-  m_Name: DialogueTrigger
+  m_Name: Dialogue Trigger - Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2078372112870182375
+--- !u!224 &5769672919717035506
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112870182374}
+  m_GameObject: {fileID: 5769672919717035507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2078372112913954053}
+  - {fileID: 5769672921213132626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 100}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 385, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2078372112870182394
+--- !u!222 &5769672919717035470
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112870182374}
+  m_GameObject: {fileID: 5769672919717035507}
   m_CullTransparentMesh: 1
---- !u!114 &2078372112870182373
+--- !u!114 &5769672919717035471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112870182374}
+  m_GameObject: {fileID: 5769672919717035507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -79,13 +79,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2078372112870182372
+--- !u!114 &5769672919717035504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112870182374}
+  m_GameObject: {fileID: 5769672919717035507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -119,11 +119,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2078372112870182373}
+  m_TargetGraphic: {fileID: 5769672919717035471}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078372112870182395}
+      - m_Target: {fileID: 5769672919717035469}
         m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
         m_MethodName: TriggerDialogue
         m_Mode: 1
@@ -135,24 +135,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2078372112870182395
+--- !u!114 &5769672919717035469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112870182374}
+  m_GameObject: {fileID: 5769672919717035507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f9075cc4640e0c4495c3f9344152e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue:
-    name: Ed
-    sentences:
-    - This is a simple dialogue tool.
-    - You can customize a variety of aspects from just one window in the Unity editor.
-    - Pretty neat, right?
+    name: 
+    sentences: []
   _textBoxAttributes:
     _targetTextBox: {fileID: 0}
     _targetImage: {fileID: 0}
@@ -183,9 +180,12 @@ MonoBehaviour:
     _triggerSize: 40
   _otherOptions:
     _oneShot: 0
-    typeSfx: {fileID: 0}
-    typeSpd: 50
---- !u!1 &2078372112913954052
+    _triggerSfx: {fileID: 0}
+    _typeSfx: {fileID: 0}
+    _triggerVolume: 100
+    _typeSpd: 50
+    _typeVolume: 100
+--- !u!1 &5769672921213132627
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,9 +193,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2078372112913954053}
-  - component: {fileID: 2078372112913954075}
-  - component: {fileID: 2078372112913954074}
+  - component: {fileID: 5769672921213132626}
+  - component: {fileID: 5769672921213132624}
+  - component: {fileID: 5769672921213132625}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -203,19 +203,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2078372112913954053
+--- !u!224 &5769672921213132626
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112913954052}
+  m_GameObject: {fileID: 5769672921213132627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078372112870182375}
+  m_Father: {fileID: 5769672919717035506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -223,21 +223,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2078372112913954075
+--- !u!222 &5769672921213132624
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112913954052}
+  m_GameObject: {fileID: 5769672921213132627}
   m_CullTransparentMesh: 1
---- !u!114 &2078372112913954074
+--- !u!114 &5769672921213132625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078372112913954052}
+  m_GameObject: {fileID: 5769672921213132627}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
