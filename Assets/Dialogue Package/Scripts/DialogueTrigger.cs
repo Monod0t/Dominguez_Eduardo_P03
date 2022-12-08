@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue _dialogue;
+    public TextBoxAttributes _textBoxAttributes;
+    public NameAttributes _nameAttributes;
+    public DialogueTextAttributes _dialogueAttributes;
+    public TriggerAttributes _triggerAttributes;
+    public OtherAttributes _otherOptions;
     private DialogueManager _dialogueManager;
 
     private void Awake()
@@ -14,41 +20,65 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        //FindObjectOfType<DialogueManager>().StartDialogue(_dialogue);
-        _dialogueManager.StartDialogue(_dialogue);
+        //Will not activate sequence if another dialogue is being played
+        if (_dialogueManager._busy)
+            return;
+
+        if (_otherOptions._triggerSfx != null)
+        {
+            PlayTriggerSfx();
+        }
 
         UpdateTextBox();
 
-        if (_dialogue._oneShot)
-        {
-            this.gameObject.SetActive(false);
-        }
+        _dialogueManager._dialogueTrigger = this.gameObject;
+        _dialogueManager._oneShot = _otherOptions._oneShot;
+        _dialogueManager.StartDialogue(_dialogue);
 
+        this.gameObject.SetActive(false);
+
+    }
+
+    private void PlayTriggerSfx()
+    {
+        AudioSource audioSource = AudioHelper.PlayClip2D(_otherOptions._triggerSfx, _otherOptions._triggerVolume/100);
+        //audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 
     void UpdateTextBox()
     {
         //Updates Text Box sprite & color with info from dialogue trigger
-        _dialogue._targetImage.sprite = _dialogue._textBoxStyle;
-        _dialogue._targetImage.color = _dialogue._textBoxColor;
+        _textBoxAttributes._targetImage.sprite = _textBoxAttributes._textBoxStyle;
+        _textBoxAttributes._targetImage.color = _textBoxAttributes._textBoxColor;
 
         //Updates name local pos., font, color, & size with info from dialogue trigger
-        _dialogue._targetName.transform.localPosition = _dialogue._namePos;
-        _dialogue._nameText.font = _dialogue._nameFont;
-        _dialogue._nameText.color = _dialogue._nameColor;
-        _dialogue._nameText.fontSize = _dialogue._nameSize;
+        _nameAttributes._targetName.transform.localPosition = _nameAttributes._namePos;
+        _nameAttributes._nameText.font = _nameAttributes._nameFont;
+        _nameAttributes._nameText.color = _nameAttributes._nameColor;
+        _nameAttributes._nameText.fontSize = _nameAttributes._nameSize;
 
         //Updates dialogue local pos., font, color, & size with info from dialogue trigger
-        _dialogue._targetDialogue.transform.localPosition = _dialogue._dialoguePos;
-        _dialogue._dialogueText.font = _dialogue._dialogueFont;
-        _dialogue._dialogueText.color = _dialogue._dialogueColor;
-        _dialogue._dialogueText.fontSize = _dialogue._dialogueSize;
+        _dialogueAttributes._targetDialogue.transform.localPosition = _dialogueAttributes._dialoguePos;
+        _dialogueAttributes._dialogueText.font = _dialogueAttributes._dialogueFont;
+        _dialogueAttributes._dialogueText.color = _dialogueAttributes._dialogueColor;
+        _dialogueAttributes._dialogueText.fontSize = _dialogueAttributes._dialogueSize;
 
         //Updates trigger local pos., font, color, & size with info from dialogue trigger
-        _dialogue._targetTriggerBtn.transform.localPosition = _dialogue._triggerPos;
-        _dialogue._triggerText.font = _dialogue._triggerFont;
-        _dialogue._triggerText.color = _dialogue._triggerColor;
-        _dialogue._triggerText.fontSize = _dialogue._triggerSize;
+        _triggerAttributes._targetTriggerBtn.transform.localPosition = _triggerAttributes._triggerPos;
+        _triggerAttributes._triggerText.font = _triggerAttributes._triggerFont;
+        _triggerAttributes._triggerText.color = _triggerAttributes._triggerColor;
+        _triggerAttributes._triggerText.fontSize = _triggerAttributes._triggerSize;
+
+        //Updates typing sfx & speed
+        if (_otherOptions._typeSfx != null)
+        {
+            _dialogueManager._typeSfx = _otherOptions._typeSfx;
+            _dialogueManager._typeVolume = _otherOptions._typeVolume;
+        }
+        _dialogueManager._typeSpd = _otherOptions._typeSpd;
+        
+        //Updates sfx
+
 
     }
 

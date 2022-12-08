@@ -10,53 +10,53 @@ public class DialogueEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-
-
         base.OnInspectorGUI();
         DialogueTrigger _dialogue = (DialogueTrigger)target;
         DialogueManager _diaMan = FindObjectOfType<DialogueManager>();
 
-        
+        _dialogue._otherOptions._triggerVolume = EditorGUILayout.Slider("Trigger Sfx Volume", _dialogue._otherOptions._triggerVolume, 0, 100);
 
-        _dialogue._dialogue.typeSpd = EditorGUILayout.Slider("Typing Speed", _dialogue._dialogue.typeSpd, -100, 100);
-        _diaMan._typeSpd = _dialogue._dialogue.typeSpd;
-        _diaMan._typeSfx = _dialogue._dialogue.typeSfx;
+        _dialogue._otherOptions._typeSpd = EditorGUILayout.Slider("Typing Speed", _dialogue._otherOptions._typeSpd, -100, 100);
+        _dialogue._otherOptions._typeVolume = EditorGUILayout.Slider("Type Sfx Volume", _dialogue._otherOptions._typeVolume, 0, 100);
+        _diaMan._typeSpd = _dialogue._otherOptions._typeSpd;
+        _diaMan._typeSfx = _dialogue._otherOptions._typeSfx;
 
         //Checks if dialogue gameobject is chosen
-        if (_dialogue._dialogue._targetTextBox != null)
+        if (_dialogue._textBoxAttributes._targetTextBox != null)
         {
             //Updates Position according to custom editor
-            _dialogue._dialogue._targetTextBox.transform.position = _dialogue._dialogue._textBoxPos;
+            _dialogue._textBoxAttributes._targetTextBox.transform.position = _dialogue._textBoxAttributes._textBoxPos;
 
             //Updates Text Box Sprite if any was chosen
-            if (_dialogue._dialogue._textBoxStyle != null)
+            if (_dialogue._textBoxAttributes._textBoxStyle != null)
             {
-                _dialogue._dialogue._targetImage = _dialogue._dialogue._targetTextBox.GetComponent<Image>();
-                _dialogue._dialogue._targetImage.sprite = _dialogue._dialogue._textBoxStyle;
+                _dialogue._textBoxAttributes._targetImage = _dialogue._textBoxAttributes._targetTextBox.GetComponent<Image>();
+                _dialogue._textBoxAttributes._targetImage.sprite = _dialogue._textBoxAttributes._textBoxStyle;
+                _dialogue._textBoxAttributes._targetImage.color = _dialogue._textBoxAttributes._textBoxColor;
             }
 
             //Auto finds name, dialogue, & trigger gameobjects in _targetTextBox gameobject
-            _dialogue._dialogue._targetName = _dialogue._dialogue._targetTextBox.transform.Find("Name").gameObject;
-            _dialogue._dialogue._targetDialogue = _dialogue._dialogue._targetTextBox.transform.Find("Dialogue").gameObject;
-            _dialogue._dialogue._targetTriggerBtn = _dialogue._dialogue._targetTextBox.transform.Find("DialogueTrigger").gameObject;
-            _dialogue._dialogue._targetTriggerText = _dialogue._dialogue._targetTextBox.transform.Find("DialogueTrigger/Text").gameObject;
+            _dialogue._nameAttributes._targetName = _dialogue._textBoxAttributes._targetTextBox.transform.Find("Name").gameObject;
+            _dialogue._dialogueAttributes._targetDialogue = _dialogue._textBoxAttributes._targetTextBox.transform.Find("Dialogue").gameObject;
+            _dialogue._triggerAttributes._targetTriggerBtn = _dialogue._textBoxAttributes._targetTextBox.transform.Find("DialogueTrigger").gameObject;
+            _dialogue._triggerAttributes._targetTriggerText = _dialogue._textBoxAttributes._targetTextBox.transform.Find("DialogueTrigger/Text").gameObject;
 
 
             //Updates Name Attributes & sends debug error if somehow null
-            if (_dialogue._dialogue._targetName != null)
+            if (_dialogue._nameAttributes._targetName != null)
             {
 
-                _dialogue._dialogue._targetName.transform.localPosition = _dialogue._dialogue._namePos;
+                _dialogue._nameAttributes._targetName.transform.localPosition = _dialogue._nameAttributes._namePos;
 
-                _dialogue._dialogue._nameText = _dialogue._dialogue._targetName.GetComponent<Text>();
+                _dialogue._nameAttributes._nameText = _dialogue._nameAttributes._targetName.GetComponent<Text>();
 
-                if (_dialogue._dialogue._nameFont != null)
+                if (_dialogue._nameAttributes._nameFont != null)
                 {
-                    _dialogue._dialogue._nameText.font = _dialogue._dialogue._nameFont;
+                    _dialogue._nameAttributes._nameText.font = _dialogue._nameAttributes._nameFont;
                 }
 
-                _dialogue._dialogue._nameText.color = _dialogue._dialogue._nameColor;
-                _dialogue._dialogue._nameText.fontSize = _dialogue._dialogue._nameSize;
+                _dialogue._nameAttributes._nameText.color = _dialogue._nameAttributes._nameColor;
+                _dialogue._nameAttributes._nameText.fontSize = _dialogue._nameAttributes._nameSize;
 
             }
             else
@@ -65,19 +65,19 @@ public class DialogueEditor : Editor
             }
 
             //Updates Dialogue Attributes & sends debug error if somehow null
-            if (_dialogue._dialogue._targetDialogue != null)
+            if (_dialogue._dialogueAttributes._targetDialogue != null)
             {
 
-                _dialogue._dialogue._targetDialogue.transform.localPosition = _dialogue._dialogue._dialoguePos;
-                _dialogue._dialogue._dialogueText = _dialogue._dialogue._targetDialogue.GetComponent<Text>();
+                _dialogue._dialogueAttributes._targetDialogue.transform.localPosition = _dialogue._dialogueAttributes._dialoguePos;
+                _dialogue._dialogueAttributes._dialogueText = _dialogue._dialogueAttributes._targetDialogue.GetComponent<Text>();
 
-                if (_dialogue._dialogue._dialogueFont != null)
+                if (_dialogue._dialogueAttributes._dialogueFont != null)
                 {
-                    _dialogue._dialogue._dialogueText.font = _dialogue._dialogue._dialogueFont;
+                    _dialogue._dialogueAttributes._dialogueText.font = _dialogue._dialogueAttributes._dialogueFont;
                 }
 
-                _dialogue._dialogue._dialogueText.color = _dialogue._dialogue._dialogueColor;
-                _dialogue._dialogue._dialogueText.fontSize = _dialogue._dialogue._dialogueSize;
+                _dialogue._dialogueAttributes._dialogueText.color = _dialogue._dialogueAttributes._dialogueColor;
+                _dialogue._dialogueAttributes._dialogueText.fontSize = _dialogue._dialogueAttributes._dialogueSize;
             }
             else
             {
@@ -85,30 +85,38 @@ public class DialogueEditor : Editor
             }
 
             //Updates Continue Dialogue Button
-            if (_dialogue._dialogue._targetTriggerBtn != null && _dialogue._dialogue._targetTriggerText != null)
+            if (_dialogue._triggerAttributes._targetTriggerBtn != null && _dialogue._triggerAttributes._targetTriggerText != null)
             {
-                if (_dialogue._dialogue._triggerLabel != null)
+                //_dialogue._triggerAtt._triggerText.text = _dialogue._triggerAtt._triggerLabel;
+
+                _dialogue._triggerAttributes._targetTriggerBtn.transform.localPosition = _dialogue._triggerAttributes._triggerPos;
+                _dialogue._triggerAttributes._triggerText = _dialogue._triggerAttributes._targetTriggerText.GetComponent<Text>();
+
+                if (_dialogue._triggerAttributes._triggerFont != null)
                 {
-                    _dialogue._dialogue._triggerText.text = _dialogue._dialogue._triggerLabel;
+                    _dialogue._triggerAttributes._triggerText.font = _dialogue._triggerAttributes._triggerFont;
                 }
 
-                _dialogue._dialogue._targetTriggerBtn.transform.localPosition = _dialogue._dialogue._triggerPos;
-                _dialogue._dialogue._triggerText = _dialogue._dialogue._targetTriggerText.GetComponent<Text>();
-
-                if (_dialogue._dialogue._triggerFont != null)
+                _dialogue._triggerAttributes._triggerText.color = _dialogue._triggerAttributes._triggerColor;
+                _dialogue._triggerAttributes._triggerText.fontSize = _dialogue._triggerAttributes._triggerSize;
+            }
+            else
+            {
+                if (_dialogue._triggerAttributes._targetTriggerBtn = null)
                 {
-                    _dialogue._dialogue._triggerText.font = _dialogue._dialogue._triggerFont;
+                    Debug.Log("Trigger gameobject not found!");
                 }
-
-                _dialogue._dialogue._triggerText.color = _dialogue._dialogue._triggerColor;
-                _dialogue._dialogue._triggerText.fontSize = _dialogue._dialogue._triggerSize;
+                if (_dialogue._triggerAttributes._targetTriggerText = null)
+                {
+                    Debug.Log("Trigger Text not found!");
+                }
             }
 
         }
-        else if (_dialogue._dialogue._targetTextBox == null)
+        else if (_dialogue._textBoxAttributes._targetTextBox == null)
         {
-            _dialogue._dialogue._targetName = null;
-            _dialogue._dialogue._targetDialogue = null;
+            _dialogue._nameAttributes._targetName = null;
+            _dialogue._dialogueAttributes._targetDialogue = null;
         }
 
     }

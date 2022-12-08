@@ -3,18 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
+    [Tooltip("Link name text here.")] public Text nameText;
+    [Tooltip("Link dialogue text here.")] public Text dialogueText;
 
-    public Animator animator;
+    [Tooltip("Link animator here (For opening & closing dialogue).")] public Animator animator;
 
+    [HideInInspector] public AudioSource _sfxPlayer;
     [HideInInspector] public AudioClip _typeSfx;
-    public float _typeSpd;
+    [HideInInspector] public float _typeSpd;
+    [HideInInspector] public float _typeVolume;
     private Queue<string> sentences;
-    
+
+    //Variables dependent on dialogue trigger currently used
+    [HideInInspector] public bool _busy = false;
+    [HideInInspector] public GameObject _dialogueTrigger;
+    [HideInInspector] public bool _oneShot = false;
+
+    private void Awake()
+    {
+        _sfxPlayer = GetComponent<AudioSource>();
+        _sfxPlayer.mute = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +38,14 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", true);
+        
+        if (_typeSfx != null)
+        {
+            _sfxPlayer.clip = _typeSfx;
+        }
+        
+        _sfxPlayer.volume = _typeVolume/100;
+        _busy = true;
 
         //Debug.Log("Starting conversation with " + dialogue.name);
         nameText.text = dialogue.name;
@@ -45,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0)
         {
             EndDialogue();
+            EnableTrigger();
             return;
         }
 
@@ -52,8 +75,9 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log(sentence);
         dialogueText.text = sentence;
         StopAllCoroutines();
+        TypeSfx(false);
         StartCoroutine(TypeSentence(sentence));
-
+        
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -89,10 +113,17 @@ public class DialogueManager : MonoBehaviour
             }
 
         }
+        TypeSfx(true);
     }
 
-    public void TypeSfx()
+    private void TypeSfx(bool _mute)
     {
+        _sfxPlayer.mute = _mute;
+
+        if (_mute == false)
+        {
+            _sfxPlayer.Play();
+        }
 
     }
 
@@ -100,8 +131,18 @@ public class DialogueManager : MonoBehaviour
     {
         //Debug.Log("End of conversation...");
         animator.SetBool("isOpen", false);
+        TypeSfx(true);
+        _busy = false;
 
     }
 
+    private void EnableTrigger()
+    {
+        if(_oneShot != true)
+        {
+            _dialogueTrigger.SetActive(true);
+        }
+
+    }
 
 }

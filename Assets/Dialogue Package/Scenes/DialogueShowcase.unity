@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 155732067}
   - component: {fileID: 155732066}
   m_Layer: 5
-  m_Name: Dialogue Canvas
+  m_Name: DialogueBox_canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 452470229}
   - component: {fileID: 452470228}
   m_Layer: 5
-  m_Name: Dialogue Trigger - Sharp
+  m_Name: Dialogue Trigger - Ex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 300, y: 250}
-  m_SizeDelta: {x: 385, y: 100}
+  m_SizeDelta: {x: 355, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452470228
 MonoBehaviour:
@@ -358,39 +358,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue:
-    _oneShot: 1
     name: Junior
     sentences:
     - This is an alright dialogue tool
     - It has a lot of options for the user to make several types of dialogue.
     - Pretty rad, right?
+  _textBoxAttributes:
     _targetTextBox: {fileID: 2047137581}
     _targetImage: {fileID: 2047137584}
     _textBoxPos: {x: 960, y: 270}
     _textBoxStyle: {fileID: 640188519, guid: a27424896928b7948bcb22af7c5e4858, type: 3}
-    _textBoxColor: {r: 255, g: 255, b: 255, a: 255}
+    _textBoxColor: {r: 1, g: 1, b: 1, a: 255}
+  _nameAttributes:
     _targetName: {fileID: 1168723423}
-    _namePos: {x: -475, y: 145}
+    _namePos: {x: 0, y: 150}
     _nameText: {fileID: 1168723425}
     _nameFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
-    _nameColor: {r: 1, g: 1, b: 1, a: 255}
-    _nameSize: 70
+    _nameColor: {r: 0, g: 0.5030503, b: 1, a: 255}
+    _nameSize: 60
+  _dialogueAttributes:
     _targetDialogue: {fileID: 1080801499}
-    _dialoguePos: {x: 0, y: -20}
+    _dialoguePos: {x: 0, y: -15}
     _dialogueText: {fileID: 1080801501}
     _dialogueFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
     _dialogueColor: {r: 0, g: 0, b: 0, a: 255}
     _dialogueSize: 50
+  _triggerAttributes:
     _targetTriggerBtn: {fileID: 1925292914}
-    _triggerLabel: Continue
-    _triggerPos: {x: 555, y: -130}
+    _triggerPos: {x: 575, y: -125}
     _targetTriggerText: {fileID: 916163867}
     _triggerText: {fileID: 916163869}
     _triggerFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
-    _triggerColor: {r: 1, g: 1, b: 1, a: 1}
-    _triggerSize: 45
-    typeSfx: {fileID: 0}
-    typeSpd: -0
+    _triggerColor: {r: 1, g: 1, b: 1, a: 255}
+    _triggerSize: 40
+  _otherOptions:
+    _oneShot: 0
+    _triggerSfx: {fileID: 8300000, guid: 1ca7d4e026da1ed468e3320c6dcb898c, type: 3}
+    _typeSfx: {fileID: 8300000, guid: 4db83b73e2d4f8341a6e371216e540df, type: 3}
+    _triggerVolume: 75
+    _typeSpd: 75
+    _typeVolume: 75
 --- !u!114 &452470229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +506,7 @@ GameObject:
   - component: {fileID: 664748978}
   - component: {fileID: 664748977}
   m_Layer: 5
-  m_Name: Dialogue Trigger - Modern
+  m_Name: Dialogue Trigger - Ex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,40 +546,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue:
-    _oneShot: 0
     name: Ed
     sentences:
     - I worked on this dialogue tool.
     - It's pretty simple to use, and it allows the user to change a variety of stuff
       that is contained by each dialogue trigger.
     - Pretty neat, right?
+  _textBoxAttributes:
     _targetTextBox: {fileID: 2047137581}
     _targetImage: {fileID: 2047137584}
     _textBoxPos: {x: 960, y: 270}
-    _textBoxStyle: {fileID: 1421898958, guid: 69ea632dad602e64a85be7e90a9bf8cf, type: 3}
-    _textBoxColor: {r: 255, g: 255, b: 255, a: 255}
+    _textBoxStyle: {fileID: -538446286, guid: a27424896928b7948bcb22af7c5e4858, type: 3}
+    _textBoxColor: {r: 1, g: 1, b: 1, a: 255}
+  _nameAttributes:
     _targetName: {fileID: 1168723423}
-    _namePos: {x: -250, y: 165}
+    _namePos: {x: 0, y: 150}
     _nameText: {fileID: 1168723425}
-    _nameFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
+    _nameFont: {fileID: 12800000, guid: 88ff6f734ddcd3c41bf60a36bf4fc0d4, type: 3}
     _nameColor: {r: 255, g: 255, b: 255, a: 255}
-    _nameSize: 60
+    _nameSize: 75
+  _dialogueAttributes:
     _targetDialogue: {fileID: 1080801499}
-    _dialoguePos: {x: 100, y: 0}
+    _dialoguePos: {x: 0, y: -20}
     _dialogueText: {fileID: 1080801501}
-    _dialogueFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
+    _dialogueFont: {fileID: 12800000, guid: 88ff6f734ddcd3c41bf60a36bf4fc0d4, type: 3}
     _dialogueColor: {r: 0, g: 0, b: 0, a: 255}
-    _dialogueSize: 50
+    _dialogueSize: 60
+  _triggerAttributes:
     _targetTriggerBtn: {fileID: 1925292914}
-    _triggerLabel: Continue
-    _triggerPos: {x: 450, y: -95}
+    _triggerPos: {x: 560, y: -125}
     _targetTriggerText: {fileID: 916163867}
     _triggerText: {fileID: 916163869}
-    _triggerFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
-    _triggerColor: {r: 0, g: 0, b: 0, a: 1}
-    _triggerSize: 45
-    typeSfx: {fileID: 0}
-    typeSpd: -0
+    _triggerFont: {fileID: 12800000, guid: 88ff6f734ddcd3c41bf60a36bf4fc0d4, type: 3}
+    _triggerColor: {r: 255, g: 255, b: 255, a: 255}
+    _triggerSize: 60
+  _otherOptions:
+    _oneShot: 0
+    _triggerSfx: {fileID: 8300000, guid: 1ca7d4e026da1ed468e3320c6dcb898c, type: 3}
+    _typeSfx: {fileID: 8300000, guid: f518f16e9cc33d24b942a4a917959548, type: 3}
+    _triggerVolume: 100
+    _typeSpd: 100
+    _typeVolume: 100
 --- !u!114 &664748978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1421898958, guid: 69ea632dad602e64a85be7e90a9bf8cf, type: 3}
+  m_Sprite: {fileID: -538446286, guid: a27424896928b7948bcb22af7c5e4858, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -923,7 +937,7 @@ GameObject:
   - component: {fileID: 900161609}
   - component: {fileID: 900161608}
   m_Layer: 5
-  m_Name: Dialogue Trigger - Medieval
+  m_Name: Dialogue Trigger - Ex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,39 +977,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue:
-    _oneShot: 1
     name: Merlin
     sentences:
     - This is a simple dialogue tool.
     - You can customize a variety of aspects from just one window in the Unity editor.
     - Pretty cool, yeah?
+  _textBoxAttributes:
     _targetTextBox: {fileID: 2047137581}
     _targetImage: {fileID: 2047137584}
     _textBoxPos: {x: 960, y: 270}
     _textBoxStyle: {fileID: 21300000, guid: 6585027be49d62c4abb9321c6c57f94f, type: 3}
-    _textBoxColor: {r: 255, g: 255, b: 255, a: 255}
+    _textBoxColor: {r: 1, g: 1, b: 1, a: 255}
+  _nameAttributes:
     _targetName: {fileID: 1168723423}
     _namePos: {x: -300, y: 155}
     _nameText: {fileID: 1168723425}
     _nameFont: {fileID: 12800000, guid: a989ec29b93ba9b449dfbcb541d89a9e, type: 3}
-    _nameColor: {r: 255, g: 255, b: 255, a: 255}
-    _nameSize: 80
+    _nameColor: {r: 1, g: 0.4526977, b: 0, a: 255}
+    _nameSize: 60
+  _dialogueAttributes:
     _targetDialogue: {fileID: 1080801499}
     _dialoguePos: {x: 0, y: -50}
     _dialogueText: {fileID: 1080801501}
     _dialogueFont: {fileID: 12800000, guid: a989ec29b93ba9b449dfbcb541d89a9e, type: 3}
     _dialogueColor: {r: 0, g: 0, b: 0, a: 255}
-    _dialogueSize: 50
+    _dialogueSize: 40
+  _triggerAttributes:
     _targetTriggerBtn: {fileID: 1925292914}
-    _triggerLabel: Continue
     _triggerPos: {x: 450, y: -90}
     _targetTriggerText: {fileID: 916163867}
     _triggerText: {fileID: 916163869}
     _triggerFont: {fileID: 12800000, guid: a989ec29b93ba9b449dfbcb541d89a9e, type: 3}
-    _triggerColor: {r: 0.41960788, g: 0.34509805, b: 0.2784314, a: 1}
-    _triggerSize: 45
-    typeSfx: {fileID: 0}
-    typeSpd: -0
+    _triggerColor: {r: 0.48235297, g: 0.39607847, b: 0.32156864, a: 255}
+    _triggerSize: 40
+  _otherOptions:
+    _oneShot: 0
+    _triggerSfx: {fileID: 8300000, guid: 1ca7d4e026da1ed468e3320c6dcb898c, type: 3}
+    _typeSfx: {fileID: 8300000, guid: e5ac8f7c9a7fb9b43a3dc65e9e3a5c11, type: 3}
+    _triggerVolume: 50
+    _typeSpd: 0
+    _typeVolume: 50
 --- !u!114 &900161609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1149,12 +1170,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
-    m_FontSize: 45
+    m_Font: {fileID: 12800000, guid: ed6a7a493ddb696409c4924455cb0c89, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1449,7 +1470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101.7, y: 0}
+  m_AnchoredPosition: {x: 120, y: 0}
   m_SizeDelta: {x: 1350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080801501
@@ -1465,7 +1486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.7735849, b: 0.7735849, a: 255}
+  m_Color: {r: 0, g: 0, b: 0, a: 255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1473,12 +1494,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 88ff6f734ddcd3c41bf60a36bf4fc0d4, type: 3}
-    m_FontSize: 70
+    m_Font: {fileID: 12800000, guid: ed6a7a493ddb696409c4924455cb0c89, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 50
+    m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1546,7 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8549239, b: 0, a: 255}
+  m_Color: {r: 1, g: 0.504717, b: 0.8679974, a: 255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1555,7 +1576,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a2f1516379440942a1052636897139d, type: 3}
-    m_FontSize: 50
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1585,6 +1606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210452999}
   - component: {fileID: 1210453000}
+  - component: {fileID: 1210453001}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1622,8 +1644,109 @@ MonoBehaviour:
   nameText: {fileID: 1168723425}
   dialogueText: {fileID: 1080801501}
   animator: {fileID: 2047137586}
-  _typeSfx: {fileID: 0}
-  _typeSpd: -0
+  _sfxPlayer: {fileID: 0}
+  _typeSfx: {fileID: 8300000, guid: 7d2daa70a56e3bf4cac8ccfad3c9ba6c, type: 3}
+  _typeSpd: 100
+  _typeVolume: 0
+  _busy: 0
+  _dialogueTrigger: {fileID: 0}
+  _oneShot: 0
+--- !u!82 &1210453001
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210452998}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 1
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1212843228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1761,7 @@ GameObject:
   - component: {fileID: 1212843231}
   - component: {fileID: 1212843230}
   m_Layer: 5
-  m_Name: Dialogue Trigger - Custom
+  m_Name: Dialogue Trigger - Ex4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1678,39 +1801,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue:
-    _oneShot: 1
-    name: Junior
+    name: Random
     sentences:
-    - This is an alright dialogue tool
-    - It has a lot of options for the user to make several types of dialogue.
-    - Pretty rad, right?
+    - You can change so many options.
+    - Literally whatever you want it to be.
+    - Just go wild.
+  _textBoxAttributes:
     _targetTextBox: {fileID: 2047137581}
     _targetImage: {fileID: 2047137584}
     _textBoxPos: {x: 960, y: 270}
     _textBoxStyle: {fileID: 1728447092, guid: 69ea632dad602e64a85be7e90a9bf8cf, type: 3}
-    _textBoxColor: {r: 0.6745283, g: 1, b: 0.69495004, a: 255}
+    _textBoxColor: {r: 1, g: 1, b: 1, a: 255}
+  _nameAttributes:
     _targetName: {fileID: 1168723423}
     _namePos: {x: -250, y: 165}
     _nameText: {fileID: 1168723425}
     _nameFont: {fileID: 12800000, guid: 8a2f1516379440942a1052636897139d, type: 3}
-    _nameColor: {r: 1, g: 0.8549239, b: 0, a: 255}
-    _nameSize: 50
+    _nameColor: {r: 1, g: 0.504717, b: 0.8679974, a: 255}
+    _nameSize: 60
+  _dialogueAttributes:
     _targetDialogue: {fileID: 1080801499}
-    _dialoguePos: {x: 101.7, y: 0}
+    _dialoguePos: {x: 120, y: 0}
     _dialogueText: {fileID: 1080801501}
-    _dialogueFont: {fileID: 12800000, guid: 88ff6f734ddcd3c41bf60a36bf4fc0d4, type: 3}
-    _dialogueColor: {r: 0, g: 0.7735849, b: 0.7735849, a: 255}
-    _dialogueSize: 70
+    _dialogueFont: {fileID: 12800000, guid: ed6a7a493ddb696409c4924455cb0c89, type: 3}
+    _dialogueColor: {r: 0, g: 0, b: 0, a: 255}
+    _dialogueSize: 50
+  _triggerAttributes:
     _targetTriggerBtn: {fileID: 1925292914}
-    _triggerLabel: Continue
-    _triggerPos: {x: 450, y: -100}
+    _triggerPos: {x: 480, y: -100}
     _targetTriggerText: {fileID: 916163867}
     _triggerText: {fileID: 916163869}
-    _triggerFont: {fileID: 12800000, guid: 2e542c9734d75bd4e9f1750f6a758135, type: 3}
-    _triggerColor: {r: 1, g: 0, b: 0, a: 1}
-    _triggerSize: 45
-    typeSfx: {fileID: 0}
-    typeSpd: -0
+    _triggerFont: {fileID: 12800000, guid: ed6a7a493ddb696409c4924455cb0c89, type: 3}
+    _triggerColor: {r: 1, g: 0, b: 0, a: 255}
+    _triggerSize: 40
+  _otherOptions:
+    _oneShot: 1
+    _triggerSfx: {fileID: 8300000, guid: 1ca7d4e026da1ed468e3320c6dcb898c, type: 3}
+    _typeSfx: {fileID: 8300000, guid: 7d2daa70a56e3bf4cac8ccfad3c9ba6c, type: 3}
+    _triggerVolume: 100
+    _typeSpd: 100
+    _typeVolume: 100
 --- !u!114 &1212843231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1787,7 +1917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 640188519, guid: a27424896928b7948bcb22af7c5e4858, type: 3}
+  m_Sprite: {fileID: 1376153298, guid: 69ea632dad602e64a85be7e90a9bf8cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1818,7 +1948,7 @@ GameObject:
   - component: {fileID: 1314230280}
   - component: {fileID: 1314230279}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: DialogueTriggers_canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1946,7 +2076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: -100}
+  m_AnchoredPosition: {x: 480, y: -100}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925292916
@@ -2114,7 +2244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
